@@ -6,7 +6,7 @@ To install this plugin:
 
   script/plugin install git://github.com/japetheape/swfobject_helper.git
 
-Make sure swfobject.js is in your javascripts dir and you have in your header of your layout:
+Make sure swfobject.js is in your javascripts dir (download here:http://code.google.com/p/swfobject/) and you have in your header of your layout:
 
   <%=yield :header %>
 
