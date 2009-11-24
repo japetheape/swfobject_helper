@@ -1,0 +1,56 @@
+= SWFObjectHelper
+This Rails plugin makes including an swf object easier, no more writing javascript for that, just plain ruby.
+
+== Installation
+To install this plugin:
+
+  script/plugin install git://github.com/japetheape/swfobject_helper.git
+
+Make sure swfobject.js is in your javascripts dir and you have in your header of your layout:
+
+  <%=yield :header %>
+
+
+
+== Examples
+=== Very simple example:
+  <%=swf_object('/flash/niftyplayer.swf', 'player') %>
+  <div id="player"></div>
+
+Produces:
+  <script type="text/javascript">
+  //<![CDATA[
+    var swf = swfobject.embedSWF(
+        "/flash/niftyplayer.swf", "player", 
+        100, 100, 
+        "9.0.0", '/flash/playerProductInstall.swf', 
+        {}, {}, {});
+  //]]>
+  </script>
+
+
+
+=== More advanced:
+  <%=swf_object('/flash/niftyplayer.swf', 'player', :flash_vars => {:flashvar1 => 'value1'}, :params => {:param1 => 'value1'}, :version => '10.0.0', :varname => 'swf_othername') %>
+
+Produces:
+  <script type="text/javascript">
+  //<![CDATA[
+    var swf_othername = swfobject.embedSWF(
+        "/flash/niftyplayer.swf", "player", 
+        100, 100, 
+        "10.0.0", '/flash/playerProductInstall.swf', 
+        {"flashvar1":"value1"}, {"param1":"value1"}, {});
+  //]]>
+  </script>
+  
+  
+  
+  
+
+
+
+
+
+
+Copyright (c) 2009 japetheape, released under the MIT license
